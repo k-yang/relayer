@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+// buf:lint:ignore PACKAGE_VERSION_SUFFIX
+package nibiru.crypto.v1beta1.ethsecp256k1;
+
+import "gogoproto/gogo.proto";
+
+// Originally
+// https://github.com/NibiruChain/nibiru/blob/main/eth/crypto/ethsecp256k1/keys.pb.go
+option go_package = "github.com/cosmos/relayer/v2/relayer/codecs/nibiru";
+
+// PubKey defines a type alias for an ecdsa.PublicKey that implements
+// Comet's PubKey interface. It represents the 33-byte compressed public
+// key format.
+message PubKey {
+  option (gogoproto.goproto_stringer) = false;
+
+  bytes key = 1;
+}
+
+// PrivKey defines a type alias for an ecdsa.PrivateKey that implements
+// Comet's PrivateKey interface.
+message PrivKey { bytes key = 1; }
